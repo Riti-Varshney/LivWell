@@ -10,6 +10,7 @@ import Section4 from '../component/section4'
 import Section5 from '../component/section5'
 import Section6 from '../component/section6'
 import Properties from '../component/rentPage/properties'
+import RentS1 from '../component/rentPage/rentS1'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -22,6 +23,7 @@ function App() {
        <Section4/>       
        <Section5/>       
        <Section6/>       
+       {/* <RentS1/> */}
        <Footer/>
     </div>
    

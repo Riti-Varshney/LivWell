@@ -5,11 +5,11 @@ import './App.css'
 import Navbar from '../component/navbar'
 import Footer from '../component/footer'
 import Section1 from '../component/section1'
-import Section2 from '../component/section2'
 import Section3 from '../component/section3'
 import Section4 from '../component/section4'
 import Section5 from '../component/section5'
 import Section6 from '../component/section6'
+import Properties from '../component/rentPage/properties'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -17,7 +17,7 @@ function App() {
     <div>
        <Navbar/>
        <Section1/>
-       <Section2/>
+       <Properties/>
        <Section3/>       
        <Section4/>       
        <Section5/>       

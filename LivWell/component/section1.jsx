@@ -17,66 +17,9 @@ const Section1 = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Find Your Perfect Home with LivWell
             </h1>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-white/90">
               Discover the ideal rental that matches your lifestyle, budget, and location preferences.
             </p>
-
-            {/* Search Section */}
-            <div className="bg-white rounded-xl shadow-xl p-6">
-              <div className="flex flex-col space-y-4">
-                <div className="flex items-center bg-gray-100 rounded px-4 py-3">
-                  <div className="w-5 h-5 flex items-center justify-center text-gray-500">
-                    <i className="ri-map-pin-line"></i>
-                  </div>
-                  <input
-                    type="text"
-                    placeholder="Enter location or use current location"
-                    className="bg-transparent border-none outline-none px-3 w-full text-sm"
-                  />
-                  <button className="w-8 h-8 flex items-center justify-center text-primary">
-                    <i className="ri-focus-3-line"></i>
-                  </button>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Price Range</label>
-                    <div className="flex items-center space-x-3">
-                      <span className="text-gray-700">$500</span>
-                      <input type="range" min="500" max="10000" defaultValue="2500" className="w-full" />
-                      <span className="text-gray-700">$10,000</span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Property Type</label>
-                    <div className="relative">
-                      <button className="w-full bg-gray-100 rounded px-4 py-3 text-left text-sm flex items-center justify-between">
-                        <span>Any Type</span>
-                        <i className="ri-arrow-down-s-line"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-3">
-                  <button className="w-full sm:w-auto bg-indigo-700 text-white px-6 py-3 rounded-lg whitespace-nowrap hover:bg-indigo-600 transition flex items-center justify-center cursor-pointer">
-                    <i className="ri-search-line mr-2"></i>
-                    Search Properties
-                  </button>
-
-                  <button className="w-full sm:w-auto border border-gray-300 bg-white text-gray-700 px-6 py-3 rounded-lg whitespace-nowrap hover:bg-gray-200 transition flex items-center justify-center cursor-pointer">
-                    <i className="ri-equalizer-line mr-2"></i>
-                    Advanced Filters
-                  </button>
-
-                  <button className="w-full sm:w-auto bg-green-500 text-white px-6 py-3 rounded-lg whitespace-nowrap hover:bg-green-400 transition flex items-center justify-center cursor-pointer">
-                    <i className="ri-mic-line mr-2"></i>
-                    Speak to Livi
-                  </button>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

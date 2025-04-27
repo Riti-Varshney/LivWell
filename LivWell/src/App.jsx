@@ -16,15 +16,15 @@ function App() {
 
   return (
     <div>
-       <Navbar/>
+       {/* <Navbar/>
        <Section1/>
        <Properties/>
        <Section3/>       
        <Section4/>       
        <Section5/>       
-       <Section6/>       
-       {/* <RentS1/> */}
-       <Footer/>
+       <Section6/>        */}
+       <RentS1/>
+       {/* <Footer/> */}
     </div>
    
   )

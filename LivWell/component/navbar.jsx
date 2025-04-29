@@ -8,6 +8,7 @@ function Navbar() {
         greet();
         startListening();
     };
+
     const greet = () => {
         let date = new Date();
         let hour = date.getHours();
@@ -20,10 +21,8 @@ function Navbar() {
         }
     };
 
-    const speakFunc = (input) => 
-        // input is the text that i pass to browser to speak
-        {
-        let speakInput = new SpeechSynthesisUtterance(input);                                                             //textToSpeech-jsclass
+    const speakFunc = (input) => {
+        let speakInput = new SpeechSynthesisUtterance(input);  // Text to speech
         speakInput.volume = 1;
         speakInput.lang = 'en-GB';
         window.speechSynthesis.speak(speakInput);
@@ -37,11 +36,45 @@ function Navbar() {
                         <span className="text-2xl font-['Pacifico'] text-purple-700">LivWell</span>
                     </NavLink>
                     <nav className="hidden md:flex items-center space-x-8">
-                        <NavLink to="/" className="text-gray-900 font-medium hover:text-primary transition">Home</NavLink>
-                        <NavLink to="/rent/:id" className="text-gray-600 hover:text-primary transition">Rent</NavLink>
-                        <NavLink to="/post-property" className="text-gray-600 hover:text-primary transition">Post Property</NavLink>
-                        <NavLink to="/wishlist" className="text-gray-600 hover:text-primary transition">Wishlist</NavLink>
+                        {/* Updated NavLinks with active state */}
+                        <NavLink
+                            to="/"
+                            className={({ isActive }) =>
+                                `text-gray-900 font-medium transition duration-300 ${
+                                    isActive ? 'text-[#0066FF] border-b-2 border-[#0066FF]' : 'hover:text-[#0066FF]'
+                                }`}
+                        >
+                            Home
+                        </NavLink>
+                        <NavLink
+                            to="/rent/:id"
+                            className={({ isActive }) =>
+                                `text-gray-600 transition duration-300 ${
+                                    isActive ? 'text-[#0066FF] border-b-2 border-[#0066FF]' : 'hover:text-[#0066FF]'
+                                }`}
+                        >
+                            Rent
+                        </NavLink>
+                        <NavLink
+                            to="/post-property"
+                            className={({ isActive }) =>
+                                `text-gray-600 transition duration-300 ${
+                                    isActive ? 'text-[#0066FF] border-b-2 border-[#0066FF]' : 'hover:text-[#0066FF]'
+                                }`}
+                        >
+                            Post Property
+                        </NavLink>
+                        <NavLink
+                            to="/wishlist"
+                            className={({ isActive }) =>
+                                `text-gray-600 transition duration-300 ${
+                                    isActive ? 'text-[#0066FF] border-b-2 border-[#0066FF]' : 'hover:text-[#0066FF]'
+                                }`}
+                        >
+                            Wishlist
+                        </NavLink>
                     </nav>
+
                     {/* ----------AI Voice Assistant------- */}
                     <div className="hidden lg:flex items-center bg-gray-100 rounded-full px-4 py-2 w-1/3">
                         <div className="w-5 h-5 flex items-center justify-center text-gray-500">

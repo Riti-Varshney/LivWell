@@ -1,6 +1,30 @@
 import React from 'react';
+import { startListening } from "../src/Assistant/voiceAssistant";
 
 const Section3 = () => {
+   const handleMicClick = () => {
+      greet();
+      startListening();
+    };
+  
+    const greet = () => {
+      let date = new Date();
+      let hour = date.getHours();
+      if (hour >= 0 && hour < 12) {
+        speakFunc("Good morning, How can I help you!");
+      } else if (hour >= 12 && hour < 16) {
+        speakFunc("Good afternoon, How can I help you!");
+      } else {
+        speakFunc("Good evening, How can I help you!");
+      }
+    };
+  
+    const speakFunc = (input) => {
+      let speakInput = new SpeechSynthesisUtterance(input);
+      speakInput.volume = 1;
+      speakInput.lang = 'en-GB';
+      window.speechSynthesis.speak(speakInput);
+    };
   return (
     <div>
       <section className="py-16 bg-gray-50">
@@ -73,7 +97,7 @@ const Section3 = () => {
                   </div>
                 </div>
 
-                <button className="bg-violet-700 text-white px-6 py-3 rounded-lg whitespace-nowrap hover:bg-violet-800 transition flex items-center justify-center">
+                <button onClick={handleMicClick} className="bg-violet-700 text-white px-6 py-3 rounded-lg whitespace-nowrap hover:bg-violet-800 transition flex items-center justify-center ">
                   <i className="ri-mic-line mr-2"></i>
                   Speak to Livi
                 </button>

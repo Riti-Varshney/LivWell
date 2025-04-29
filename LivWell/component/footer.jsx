@@ -1,6 +1,29 @@
 import React from 'react';
-
+import { startListening } from "../src/Assistant/voiceAssistant";
 const Footer = () => {
+  const handleMicClick = () => {
+    greet();
+    startListening();
+  };
+
+  const greet = () => {
+    let date = new Date();
+    let hour = date.getHours();
+    if (hour >= 0 && hour < 12) {
+      speakFunc("Good morning, How can I help you!");
+    } else if (hour >= 12 && hour < 16) {
+      speakFunc("Good afternoon, How can I help you!");
+    } else {
+      speakFunc("Good evening, How can I help you!");
+    }
+  };
+
+  const speakFunc = (input) => {
+    let speakInput = new SpeechSynthesisUtterance(input);
+    speakInput.volume = 1;
+    speakInput.lang = 'en-GB';
+    window.speechSynthesis.speak(speakInput);
+  };
   return (
     <div>
       <footer className="bg-gray-900 text-white py-12">
@@ -100,10 +123,13 @@ const Footer = () => {
 
       {/* Voice Assistant Button */}
       <div className="fixed bottom-6 right-6 z-50">
-        <button className="w-14 h-14 bg-violet-700 rounded-full shadow-lg flex items-center justify-center text-white livi-pulse">
+        <button
+          onClick={handleMicClick}
+          className="w-19 h-19 bg-violet-700 rounded-full shadow-lg flex items-center justify-center text-white livi-pulse">
           <i className="ri-mic-line text-xl"></i>
         </button>
       </div>
+      {/* ----------------------------------------- */}
     </div>
   );
 };

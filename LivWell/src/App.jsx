@@ -11,22 +11,55 @@ import Section5 from '../component/section5'
 import Section6 from '../component/section6'
 import Properties from '../component/rentPage/properties'
 import RentS1 from '../component/rentPage/rentS1'
+import WishListItems from '../component/WishListPage/WishListItems'
+import PostProperty from '../component/PostProperty/PostProperty'
+import { WishlistProvider } from '../component/WishListPage/Wishlist'
+import { createBrowserRouter } from 'react-router-dom'
+import { RouterProvider } from 'react-router-dom'
 function App() {
-  const [count, setCount] = useState(0)
+
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <>
+          <Navbar />
+          <Section1 />
+          <Properties />
+          <Section3 />
+          <Section4 />
+          <Section5 />
+          <Section6 />
+          <Footer />
+      </>
+    },
+    {
+      path: '/rent/:id',
+      element:<><Navbar/><RentS1/></>
+    },
+    {
+      path: '/wishlist',
+      element: <>
+        <Navbar />
+          <WishListItems />
+        <Footer />
+      </>
+    },
+    {
+      path: '/post-property',
+      element: <>
+        <Navbar />
+          <PostProperty />
+        <Footer />
+      </>
+    }
+  ])
 
   return (
-    <div>
-       {/* <Navbar/>
-       <Section1/>
-       <Properties/>
-       <Section3/>       
-       <Section4/>       
-       <Section5/>       
-       <Section6/>        */}
-       <RentS1/>
-       {/* <Footer/> */}
-    </div>
-   
+    <>
+    <WishlistProvider>
+      <RouterProvider router={router} />
+      </WishlistProvider>
+    </>
   )
 }
 
